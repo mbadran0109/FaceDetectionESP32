@@ -6,7 +6,7 @@ from datetime import datetime
 
 # from PIL import ImageGrab
 
-path = r'D:\PSC\arduino\RAWFace Detection\image_folder'
+path = r'C:\Face_Detection\image_folder'
 images = []
 classNames = []
 myList = os.listdir(path)
