@@ -8,7 +8,7 @@ import numpy as np
 
 # from PIL import ImageGrab
 
-path = r'D:\PSC\arduino\RAWFace Detection\image_folder'
+path = r'C:\Face_Detection\image_folder'
 url='http://192.168.111.224/capture'
 images = []
 classNames = []
