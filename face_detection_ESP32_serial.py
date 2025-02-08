@@ -6,10 +6,10 @@ import urllib.request
 import serial
 import time
 
-# Arduino setup
+# Arduino setup through serial communication, the COM Port should not be connected through any other application
 arduino = serial.Serial(port='COM14', baudrate=9600, timeout=0.1)
 
-# Define the `write_read` function
+# Define the `write_read` function which sends and recieves data form serial communication with arduino
 def write_read(x):
     try:
         arduino.write(bytes(x, 'utf-8'))
@@ -20,8 +20,8 @@ def write_read(x):
         return f"Error: {e}"
 
 # Face recognition setup
-path = r'C:\Face_Detection\image_folder'
-url='http://192.168.202.224/capture'
+path = r'C:\Face_Detection\image_folder' # recognized faces for comparison
+url='http://192.168.202.224/capture' # camera URL to get images
 images = []
 classNames = []
 myList = os.listdir(path)
@@ -43,7 +43,7 @@ def findEncodings(images):
 encodeListKnown = findEncodings(images)
 print("Encoding Complete")
 
-# Camera loop
+# Live Camera loop
 while True:
     img_resp = urllib.request.urlopen(url)
     imgnp = np.array(bytearray(img_resp.read()), dtype=np.uint8)
@@ -69,13 +69,13 @@ while True:
             cv2.rectangle(img, (x1, y2 - 35), (x2, y2), (0, 255, 0), cv2.FILLED)
             cv2.putText(img, name, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
 
-            if name == "OMAR ESLAM":
+            if name == "ABDUKODIR":
                 led_state = "3"  # Command to open servo 1 to 90 degrees
-            elif name == "MAHA":
+            elif name == "HAALAND":
                 led_state = "4"  # Command to open servo 2
-            elif name == "ABOROKAYA":
+            elif name == "OMARMARMOSH":
                 led_state = "5"  # Command to open servo 3
-            elif name == "MALAK":
+            elif name == "EDERSON":
                 led_state = "6"  # Command to open servo 4
             else:
                 led_state = "1"  # Recognized face, turn on green LED
