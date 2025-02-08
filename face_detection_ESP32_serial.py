@@ -20,7 +20,7 @@ def write_read(x):
         return f"Error: {e}"
 
 # Face recognition setup
-path = r'D:\PSC\arduino\RAWFace Detection\image_folder'
+path = r'C:\Face_Detection\image_folder'
 url='http://192.168.202.224/capture'
 images = []
 classNames = []
