@@ -95,9 +95,3 @@ path = r'D:\path\to\your\image_folder'
     ```
 
 Press `q` in the video window to quit the application.
-
-## 🎬 Demo
-
-*(Here you can add a GIF showing the project in action)*
-
-!Project Demo GIF
